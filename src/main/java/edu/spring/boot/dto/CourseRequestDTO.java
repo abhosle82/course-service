@@ -10,9 +10,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Course {
+public class CourseRequestDTO {
 
-    private int courseId;
     private String name;
     private String trainerName;
     private String duration; // days
@@ -20,6 +19,7 @@ public class Course {
     private Date startDate;
     private String courseType; //Live OR Recodring
     private double fees;
-    private boolean isCertificateAvailable;
+    private boolean certificateAvailable;
     private String description;
+
 }

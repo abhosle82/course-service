@@ -8,6 +8,8 @@ import edu.spring.boot.service.CourseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.security.Provider;
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class CourseController {
     }
 
     @PostMapping
-    public ServiceResponse<CourseResponseDTO> addNewCourse(@RequestBody CourseRequestDTO courseRequestDTO){
+    public ServiceResponse<CourseResponseDTO> addNewCourse(@RequestBody @Valid CourseRequestDTO courseRequestDTO){
         ServiceResponse<CourseResponseDTO> serviceResponse = new ServiceResponse<>();
         try {
             CourseResponseDTO newCourse = courseService.onBoardNewCourse(courseRequestDTO);

@@ -19,6 +19,8 @@ public class AppUtils {
         course.setFees(courseRequestDTO.getFees());
         course.setCertificateAvailable(courseRequestDTO.isCertificateAvailable());
         course.setDescription(courseRequestDTO.getDescription());
+        course.setEmailId(courseRequestDTO.getEmailId());
+        course.setContact(courseRequestDTO.getContact());
         return course;
     }
 
@@ -35,6 +37,8 @@ public class AppUtils {
         courseResponseDTO.setCertificateAvailable(course.isCertificateAvailable());
         courseResponseDTO.setDescription(course.getDescription());
         courseResponseDTO.setCourseUniqueCode(UUID.randomUUID().toString().split("-")[0]);
+        courseResponseDTO.setEmailId(course.getEmailId());
+        courseResponseDTO.setContact(course.getContact());
         return courseResponseDTO;
     }
 }

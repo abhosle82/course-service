@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 @Data
@@ -26,4 +27,6 @@ public class CourseResponseDTO {
     private boolean certificateAvailable;
     private String description;
     private String courseUniqueCode;
+    private String emailId;
+    private String contact;
 }

@@ -26,4 +26,6 @@ public class Course {
     private double fees;
     private boolean certificateAvailable;
     private String description;
+    private String emailId;
+    private String contact;
 }

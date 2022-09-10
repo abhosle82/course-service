@@ -6,6 +6,7 @@ import edu.spring.boot.dto.CourseResponseDTO;
 import edu.spring.boot.entity.Course;
 import edu.spring.boot.exception.CourseServiceBusinessException;
 import edu.spring.boot.util.AppUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Service
+@Slf4j
 public class CourseService {
 
     @Autowired
@@ -21,12 +23,17 @@ public class CourseService {
     public CourseResponseDTO onBoardNewCourse(CourseRequestDTO courseRequestDTO){
         Course course = AppUtils.mapCourseRequestDTOToEntity(courseRequestDTO);
         CourseResponseDTO courseResponseDTO;
+        log.info("In CourseService::onBoardNewCourse START");
         try{
+            log.debug("In CourseService::onBoardNewCourse --> CourseRepository::save START");
             courseRepository.save(course);
+            log.debug("In CourseService::onBoardNewCourse --> CourseRepository::save END");
             courseResponseDTO = AppUtils.mapEntityToCourseResponseDTO(course);
         }catch (Exception exception){
+            log.error("In CourseService::onBoardNewCourse --> Exception {}",exception.getMessage());
             throw new CourseServiceBusinessException("onboardNewCourse service method failed..");
         }
+        log.info("In CourseService::onBoardNewCourse END");
         return courseResponseDTO;
     }
     public List<CourseResponseDTO> viewAllCourses(){

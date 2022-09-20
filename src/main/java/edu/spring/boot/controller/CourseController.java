@@ -84,4 +84,5 @@ public class CourseController {
     public ServiceResponse<CourseResponseDTO> updateCourse(@PathVariable Integer courseId, @RequestBody CourseRequestDTO courseRequestDTO){
         return new ServiceResponse<>(HttpStatus.OK,courseService.updateCourse(courseId,courseRequestDTO));
     }
+
 }
